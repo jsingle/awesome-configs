@@ -104,7 +104,7 @@ beautiful.init(config.themePath                .. "/themeZilla.lua")
 
 -- This is used later as the default terminal and editor to run.
 local titlebars_enabled = beautiful.titlebar_enabled == nil and true or beautiful.titlebar_enabled
-terminal                = "urxvtc"
+terminal                = "xterm"
 editor                  = os.getenv("EDITOR") or "nano"
 editor_cmd              = terminal .. " -e " .. editor
 
@@ -169,7 +169,7 @@ local meminfo                = drawer.memInfo           ( 300                   
 local cpuinfo                = drawer.cpuInfo           ( 300                                )
 
 -- Create the laucher dock
-local lauchDock              = widgets.dock             ( nil , {position="left",default_cats={"Tools","Development","Network","Player"}})
+--local lauchDock              = widgets.dock             ( nil , {position="left",default_cats={"Tools","Development","Network","Player"}})
 
 -- Create battery
 local bat                    = widgets.battery()
@@ -245,6 +245,13 @@ local sep_end_menu        = chopped.get_separator {
 
 local spacer5 = widgets.spacer({text = " ",width=5})
 -- Imitate the Gnome 2 menubar
+-- 
+--[[
+--
+--
+--
+--
+--
 local bar_menu,bar_menu_w = radical.bar{
     item_style           = beautiful.bottom_menu_item_style or radical.item.style.arrow_prefix,
     fg                   = beautiful.fg_normal,
@@ -305,6 +312,15 @@ it = bar_menu:add_item {text="Launch",
     bg_used  = beautiful.bar_bg_buttons or beautiful.menu_bg_normal,
 }
 it.state[radical.base.item_flags.USED] = true
+--
+--
+--
+--
+--
+--
+--]]
+
+
 
 rad_taglist.taglist_watch_name_changes = true
 
@@ -503,7 +519,7 @@ client.connect_signal("manage", function (c, startup)
     c:connect_signal("mouse::enter", function(c)
         if awful.layout.get(c.screen) ~= awful.layout.suit.magnifier
             and awful.client.focus.filter(c) then
-            client.focus = c
+            --client.focus = c
         end
     end)
 

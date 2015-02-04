@@ -80,6 +80,11 @@ shorter.Screen = {
 shorter.Launch = {
     {desc = "Launch a terminal",
     key={{  modkey,           }, "Return" }, fct = function () awful.util.spawn(terminal)                        end},
+    {desc = "Launch chromium",
+    key={{  modkey,           }, "\\" }, fct = function () awful.util.spawn("chromium")  end},
+
+    {desc = "Switch Screen",
+    key={{  modkey, "Control"    }, "j" }, fct = function () awful.screen.focus_relative(1)  end},
 
     {desc = "Show the application menu",
     key={{  modkey }, "p"}, fct = function() print("meh");menubar.show()                                                     end},
